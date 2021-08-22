@@ -108,3 +108,15 @@
 	opacity: 0.5;
 	transition: 0.2s;
 }
+
+.myCartRow {
+	position: sticky;
+	bottom: 0;
+	margin-bottom: 10px;
+}
+
+.myCartCol {
+	background-color: #a23530;
+	color: #fff;
+	border-radius: 8px;
+}

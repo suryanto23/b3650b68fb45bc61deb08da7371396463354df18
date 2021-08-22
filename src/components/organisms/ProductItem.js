@@ -42,7 +42,12 @@ function ProductItem(props) {
                                 <h5>Rp {convertIDR(props.price)}</h5>
                             </Col>
                             <Col className="p-0 text-end" xs={5}>
-                                <Button className="myRemoveFocusStyle myAddtoCartButton fw-bold w-100">ADD +</Button>
+                                <Button 
+                                    onClick={()=>{}}
+                                    className="myRemoveFocusStyle myAddtoCartButton fw-bold w-100"
+                                >
+                                    ADD +
+                                </Button>
                             </Col>
                         </Row>
                     </div>

@@ -13,6 +13,8 @@ function ProductCatalog(props) {
     const dispatch = useDispatch()
     const product = useSelector(state => state.product)
 
+    
+
     useEffect(() => {
         dispatch(getProductAction())
     }, [dispatch])
