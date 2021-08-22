@@ -1,7 +1,12 @@
-import React from 'react'
+import {React , useEffect} from 'react'
+import {useDispatch , useSelector} from 'react-redux'
 import {Row , Col} from 'react-bootstrap'
+import {getCartAction} from '../../redux/actions/cart.actions'
 
 function StickyCart(props) {
+
+    const dispatch = useDispatch()
+    const data = useSelector(state => state.cart)
 
     function convertIDR(s){
         let	reverse = s.toString().split('').reverse().join(''),
@@ -10,16 +15,20 @@ function StickyCart(props) {
         return converted
     }
 
+    useEffect(() => {
+        dispatch(getCartAction())
+    }, [dispatch])
+
 
     return (
-        <Row className="myCartRow justify-content-center mb-3 px-1 py-0">
+        <Row className="myCartRow justify-content-center mb-3 px-1 pb-1">
             <Col className="myCartCol p-3" xs={11} lg={4}>
                 <Row>
                     <Col xs={9} lg={6}>
                         <Col className="d-flex flex-row " xs={12} lg={12}>
-                            <h6 className="m-0">5 items</h6>
+                            <h6 className="m-0">{props.counter} items</h6>
                             <h6 className="fw-light my-0 mx-2">|</h6>
-                            <h6 className="m-0"> Rp {convertIDR(125000)}</h6>
+                            <h6 className="m-0"> Rp {convertIDR(data.totalPrice)}</h6>
                         </Col>
                         <Col xs={12} lg={12}>
                             <p className="m-0">Termasuk ongkos kirim</p>

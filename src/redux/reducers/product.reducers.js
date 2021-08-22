@@ -1,13 +1,13 @@
-import { REQUEST, FAILED, SUCCESS, FINISH } from '../actions/cart.actions'
+import { REQUEST, FAILED, SUCCESS_PRODUCT, FINISH_PRODUCT } from '../actions/product.actions'
 
 const initialState = {
-    data : [],
-    dateData : [],
+    productData : [],
+    productDateData : [],
     isLoading : false,
     error: false
 };
 
-const cart = (state = initialState, action) => {
+const product = (state = initialState, action) => {
     switch (action.type){
 
         case REQUEST: 
@@ -24,16 +24,16 @@ const cart = (state = initialState, action) => {
                 isLoading: false,
             };
 
-        case SUCCESS:
+        case SUCCESS_PRODUCT:
             return {
                 ...state,
-                data: action.data,
+                productData: action.productData,
                 isLoading: false,
             };
-        case FINISH:
+        case FINISH_PRODUCT:
             return {
                 ...state,
-                dateData: action.data,
+                productDateData: action.data,
                 isLoading: false,
             };
 
@@ -42,4 +42,4 @@ const cart = (state = initialState, action) => {
     }
 }
 
-export default cart;
+export default product;

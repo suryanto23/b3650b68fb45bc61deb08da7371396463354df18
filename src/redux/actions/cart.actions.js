@@ -1,7 +1,8 @@
 export const REQUEST = "REQUEST";
 export const FAILED = "FAILED";
-export const SUCCESS = "SUCCESS";
+export const SUCCESS_CART = "SUCCESS_CART";
 export const FINISH = "FINISH";
+export const COUNTER = "COUNTER";
 
 export const request = () => {
     return {
@@ -9,19 +10,25 @@ export const request = () => {
     };
 };
 
-export const success = (data) => {
+export const success = (data , allPrice) => {
     return {
-        type: SUCCESS,
+        type: SUCCESS_CART,
+        cartItem: data,
+        totalPrice : allPrice
+    };
+};
+
+export const counter = (data) => {
+    return {
+        type: COUNTER,
         data: data
     };
 };
 
-export const finish = (data,totalPriceInd,totalPriceTwn) => {
+export const finish = (data) => {
     return {
         type: FINISH,
-        data: data,
-        totalPriceInd: totalPriceInd ,
-        totalPriceTwn : totalPriceTwn
+        data : data
     };
 };
 
@@ -32,62 +39,33 @@ export const failed = (err) => {
     };
 };
 
-export const addToCartAction = () => (dispatch) => { 
-    console.log("aading to cart")
-
-};
-
-
-export const getCounterAction = () => (dispatch) => { 
-    console.log("im counter")
+export const getCartAction = () => (dispatch) => { 
     let myCartItem = JSON.parse(localStorage.getItem("items")) 
-    if(myCartItem)
-        dispatch(success(myCartItem.length))
+    if(myCartItem){
+        dispatch(success(myCartItem , 0))
+        dispatch(sumPriceAction())
+    } 
 };
 
-export const addCartAction = (itemData) => (dispatch) => { 
+export const addToCartAction = (itemData) => (dispatch) => { 
     let items = []
     let localItemData = JSON.parse(localStorage.getItem("items")) 
     if (localItemData) items.push(...localItemData)
     items.push(itemData)
     localStorage.setItem("items" , JSON.stringify(items))
     dispatch(getCounterAction())
-    dispatch(getCartAction())
+    dispatch(sumPriceAction())
 };
 
-export const getCartAction = () => (dispatch) => {
+
+export const getCounterAction = () => (dispatch) => { 
     let myCartItem = JSON.parse(localStorage.getItem("items")) 
-    if(myCartItem){
-        dispatch(finish(myCartItem))
-        dispatch(sumPriceAction())
-    } 
+    if(myCartItem)
+        dispatch(counter(myCartItem.length))
 };
 
 export const sumPriceAction = () => (dispatch) => {    
     let myCartItem = JSON.parse(localStorage.getItem("items")) 
-    let totalPriceInd =  myCartItem.reduce(function(a,b){return a + b.priceInd},0)
-    let totalPriceTwn =  myCartItem.reduce(function(a,b){return a + b.priceTwn},0)
-    dispatch(finish(myCartItem,totalPriceInd,totalPriceTwn))
-};
-
-export const editQuantityAction = (targetIndex , newQuantity) => (dispatch) => { 
-    let data = JSON.parse(localStorage.getItem("items"))    
-    data[targetIndex].itemQuantity = newQuantity
-    data[targetIndex].priceInd = data[targetIndex].itemPriceInd * newQuantity
-    data[targetIndex].priceTwn = data[targetIndex].itemPriceTwn * newQuantity
-    localStorage.setItem("items" , JSON.stringify(data))
-    dispatch(sumPriceAction())    
-};
-
-export const deleteItemAction = (targetIndex) => (dispatch) => {    
-    let AllData = JSON.parse(localStorage.getItem("items")) 
-    let FilteredData = AllData.filter((item,index)=> index !== targetIndex)
-    localStorage.setItem("items" , JSON.stringify(FilteredData))  
-    dispatch(getCartAction()) 
-    dispatch(getCounterAction())
-};
-
-export const clearCartAction = () => (dispatch) => { 
-    localStorage.removeItem("items")
-    window.location.reload()
+    let totalPrice =  myCartItem.reduce(function(a,b){return a + b.price},0)
+    dispatch(success(myCartItem,totalPrice))
 };

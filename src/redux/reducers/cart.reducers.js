@@ -1,7 +1,8 @@
-import { REQUEST, FAILED, SUCCESS, FINISH } from '../actions/product.actions'
+import { REQUEST, FAILED, SUCCESS_CART, COUNTER } from '../actions/cart.actions'
 
 const initialState = {
-    data : [],
+    counter : 0,
+    totalPrice : 0,
     isLoading : false,
     error: false
 };
@@ -23,12 +24,21 @@ const cart = (state = initialState, action) => {
                 isLoading: false,
             };
 
-        case SUCCESS:
+        case SUCCESS_CART:
             return {
                 ...state,
-                data: action.data,
+                cartItem: action.cartItem,
+                totalPrice: action.totalPrice,
                 isLoading: false,
             };
+
+            case COUNTER:
+                return {
+                    ...state,
+                    counter: action.data,
+                    // totalPrice: action.totalPrice,
+                    isLoading: false,
+                };
 
         default:
             return state;

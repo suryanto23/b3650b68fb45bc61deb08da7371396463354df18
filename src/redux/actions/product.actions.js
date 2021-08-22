@@ -1,7 +1,7 @@
 export const REQUEST = "REQUEST";
 export const FAILED = "FAILED";
-export const SUCCESS = "SUCCESS";
-export const FINISH = "FINISH";
+export const SUCCESS_PRODUCT = "SUCCESS_PRODUCT";
+export const FINISH_PRODUCT = "FINISH_PRODUCT";
 
 export const request = () => {
     return {
@@ -11,8 +11,8 @@ export const request = () => {
 
 export const success = (data) => {
     return {
-        type: SUCCESS,
-        data: data
+        type: SUCCESS_PRODUCT,
+        productData: data
     };
 };
 
@@ -25,7 +25,7 @@ export const failed = (err) => {
 
 export const finish = (data) => {
     return {
-        type: FINISH,
+        type: FINISH_PRODUCT,
         data: data,
     };
 };

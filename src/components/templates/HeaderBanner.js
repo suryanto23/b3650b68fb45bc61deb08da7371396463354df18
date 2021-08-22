@@ -7,7 +7,7 @@ import Slider from "react-slick";
 function HeaderBanner(props) {
 
     const dispatch = useDispatch()
-    const date = useSelector(state => state.product)
+    const data = useSelector(state => state.product)
 
     const settings = {
         dots: false,
@@ -22,113 +22,12 @@ function HeaderBanner(props) {
         return newName.toUpperCase()
     }
 
-    let DUMMY_DATE = [{
-            day : "senin",
-            date : "11",
-            month : "maret",
-            year : "2019",
-            status : true
-        },
-        {
-            day : "selasa",
-            date : "12",
-            month : "maret",
-            year : "2019",
-            status : true
-        },
-        {
-            day : "rabu",
-            date : "13",
-            month : "maret",
-            year : "2019",
-            status : true
-        },
-        {
-            day : "kamis",
-            date : "14",
-            month : "maret",
-            year : "2019",
-            status : true
-        },
-        {
-            day : "jumat",
-            date : "15",
-            month : "maret",
-            year : "2019",
-            status : true
-        },
-        {
-            day : "sabtu",
-            date : "16",
-            month : "maret",
-            year : "2019",
-            status : false
-        },
-        {
-            day : "minggu",
-            date : "17",
-            month : "maret",
-            year : "2019",
-            status : false
-        },
-        {
-            day : "senin",
-            date : "18",
-            month : "maret",
-            year : "2019",
-            status : true
-        },
-        {
-            day : "selasa",
-            date : "19",
-            month : "maret",
-            year : "2019",
-            status : true
-        },
-        {
-            day : "rabu",
-            date : "20",
-            month : "maret",
-            year : "2019",
-            status : true
-        },
-        {
-            day : "kamis",
-            date : "21",
-            month : "maret",
-            year : "2019",
-            status : true
-        },
-        {
-            day : "jumat",
-            date : "22",
-            month : "maret",
-            year : "2019",
-            status : true
-        },
-        {
-            day : "sabtu",
-            date : "23",
-            month : "maret",
-            year : "2019",
-            status : false
-        },
-        {
-            day : "minggu",
-            date : "24",
-            month : "maret",
-            year : "2019",
-            status : false
-        }
-
-    ]
-
     useEffect(() => {
         dispatch(getDateAction())
     }, [dispatch])
 
     return (
-        <Row className="pb-2 border-bottom border-1 ">
+        <Row className="pb-2 border-bottom border-1 pt-2 ">
             <Col className="text-center d-flex flex-column justify-content-center" xs={1} lg={1}>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">
                 <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
@@ -146,7 +45,7 @@ function HeaderBanner(props) {
             
             <Col className="px-0 myOverflowHide" xs={12} lg={12}>
                 <Slider {...settings}>
-                    {DUMMY_DATE.map((items,index)=>(
+                    {data.productDateData && data.productDateData.map((items,index)=>(
                         <div 
                             key={index}
                             onClick={()=>{

@@ -43,7 +43,11 @@ function ProductItem(props) {
                             </Col>
                             <Col className="p-0 text-end" xs={5}>
                                 <Button 
-                                    onClick={()=>{}}
+                                    onClick={()=>{props.addToCart({
+                                        image : props.image,
+                                        title : props.title,
+                                        price : props.price
+                                    })}}
                                     className="myRemoveFocusStyle myAddtoCartButton fw-bold w-100"
                                 >
                                     ADD +
