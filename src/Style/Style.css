@@ -78,9 +78,10 @@
 
 .myProductCard {
 	box-shadow: 5px 3px 3px #cfcfcf;
-	/* border-radius: 5px; */
+	border-radius: 16px;
 	width: 340px;
 	min-height: 510px;
+	overflow: hidden;
 }
 
 .myProductImageFrame {
@@ -119,4 +120,25 @@
 	background-color: #a23530;
 	color: #fff;
 	border-radius: 8px;
+}
+
+.mySelectAddress {
+	cursor: pointer;
+}
+
+.modal {
+	position: relative;
+}
+
+.modal-content {
+	position: fixed;
+	top: auto;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 8px;
+}
+
+.mySuggestItems {
+	cursor: pointer;
 }
