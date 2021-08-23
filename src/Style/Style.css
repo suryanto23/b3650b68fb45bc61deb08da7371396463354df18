@@ -1,0 +1,144 @@
+.myCaptionSize {
+	font-size: 11px;
+}
+
+.myDateFrame {
+	width: 60px;
+	height: 55px;
+}
+
+.myOverflowHide {
+	overflow: hidden;
+}
+
+.myDateFrame:hover {
+	background-color: #424749;
+	color: white;
+	transition: 0.5s;
+}
+
+.myRemoveFocusStyle:focus {
+	outline: none;
+	box-shadow: none;
+}
+
+.myStatusOffOpacity {
+	opacity: 0.2;
+}
+
+.myRoundedButton-1 {
+	border: none;
+	background-color: #424749;
+	border-radius: 0;
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+}
+
+.myRoundedButton-2 {
+	border: none;
+	background-color: #424749;
+	border-radius: 0;
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+
+.myRoundedButton-1:hover,
+.myRoundedButton-2:hover {
+	background-color: #424749 !important;
+	opacity: 0.8;
+}
+
+.myRoundedButtonActive-1 {
+	background-color: white;
+	color: black;
+	border: 1px solid #424749;
+	opacity: 0.3;
+	border-radius: 0;
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+}
+
+.myRoundedButtonActive-2 {
+	background-color: white;
+	color: black;
+	border: 1px solid #424749;
+	opacity: 0.3;
+	border-radius: 0;
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+
+.myRoundedButtonActive-2:hover,
+.myRoundedButtonActive-1:hover {
+	background-color: white;
+	color: black;
+	box-shadow: ;
+	opacity: 0.3;
+}
+
+.myProductCard {
+	box-shadow: 5px 3px 3px #cfcfcf;
+	border-radius: 16px;
+	width: 340px;
+	min-height: 510px;
+	overflow: hidden;
+}
+
+.myProductImageFrame {
+	width: 100%;
+	height: 320px;
+}
+
+.myProductImage {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.myProductDescFrame {
+}
+
+.myAddtoCartButton {
+	border: 0;
+	background-color: #f9234a;
+	transition: 0.4s;
+}
+
+.myAddtoCartButton:hover {
+	background-color: #f9234a;
+	opacity: 0.5;
+	transition: 0.2s;
+}
+
+.myCartRow {
+	position: sticky;
+	bottom: 0;
+	margin-bottom: 10px;
+}
+
+.myCartCol {
+	background-color: #a23530;
+	color: #fff;
+	border-radius: 8px;
+}
+
+.mySelectAddress {
+	cursor: pointer;
+}
+
+.modal {
+	position: relative;
+}
+
+.modal-content {
+	position: fixed;
+	top: auto;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 8px;
+}
+
+.mySuggestItems {
+	cursor: pointer;
+}
